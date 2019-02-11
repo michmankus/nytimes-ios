@@ -18,8 +18,8 @@ class HomeViewController: UIViewController {
         view.backgroundColor = .green
     }
 
-    init() {
-        viewModel = HomeViewModel()
+    init(viewModel: HomeViewModel) {
+        self.viewModel = viewModel
         
         super.init(nibName: nil, bundle: nil)
     }

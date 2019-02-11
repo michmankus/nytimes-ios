@@ -1,5 +1,5 @@
 //
-//  AppContext.swift
+//  MostViewedResult.swift
 //  NYtimes
 //
 //  Created by Michał Mańkus on 11/02/2019.
@@ -8,11 +8,6 @@
 
 import Foundation
 
-class AppContext {
+struct MostViewedResult: Codable {
     
-    let apiClient: ApiClient
-    
-    init() {
-        self.apiClient = ApiClient()
-    }
 }
