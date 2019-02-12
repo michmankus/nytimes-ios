@@ -10,9 +10,13 @@ import Foundation
 
 class AppContext {
     
-    let apiClient: ApiClient
+    let mostViewedApiClient: MostViewedApiClient
     
     init() {
-        self.apiClient = ApiClient()
+        let mostViewedConfig = ApiConfiguration(baseURL: "http://api.nytimes.com/svc/mostpopular/", //TODO: - Move it to some config file
+                                                apiVersion: "v2",
+                                                key: "YV5aKqdBRWAI2Dab3uHMKpNwHmvogGwz")
+        let mostViewedNetworkService = NetworkSerivce(config: mostViewedConfig)
+        self.mostViewedApiClient = MostViewedApiClient(networkService: mostViewedNetworkService)
     }
 }

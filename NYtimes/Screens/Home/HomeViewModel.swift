@@ -20,7 +20,7 @@ protocol HomeViewModelCoordinatorDelegate: class {
 
 class HomeViewModel {
     
-    private let apiClient: ApiClient
+    private let apiClient: MostViewedApiClient
     private var articles: [ArticleData] = []
     
     weak var viewDelegate: HomeViewModelViewDelegate?
@@ -59,7 +59,7 @@ class HomeViewModel {
         }
     }
     
-    init(apiClient: ApiClient) {
-        self.apiClient = apiClient
+    init(mostViewedApiClient: MostViewedApiClient) {
+        self.apiClient = mostViewedApiClient
     }
 }

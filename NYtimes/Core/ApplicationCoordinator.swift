@@ -18,7 +18,7 @@ class ApplicationCoordinator: Coordinator {
         self.window = window
         appContext = AppContext()
         
-        let homeViewModel = HomeViewModel(apiClient: appContext.apiClient)
+        let homeViewModel = HomeViewModel(mostViewedApiClient: appContext.mostViewedApiClient)
         let homeViewController = HomeViewController(viewModel: homeViewModel)
         let navigationController = UINavigationController(rootViewController: homeViewController)
         rootViewController = navigationController
