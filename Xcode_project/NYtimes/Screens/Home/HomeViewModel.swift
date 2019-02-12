@@ -6,7 +6,7 @@
 //  Copyright © 2019 Michał Mańkus. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol HomeViewModelViewDelegate: class {
     func dataLoaded()
@@ -15,13 +15,25 @@ protocol HomeViewModelViewDelegate: class {
 }
 
 protocol HomeViewModelCoordinatorDelegate: class {
-    
+    func openArticle(data: ArticleData)
 }
 
 class HomeViewModel {
     
     private let apiClient: MostViewedApiClient
     private var articles: [ArticleData] = []
+    lazy var titleView: UIView = {
+        let image = UIImage(named: "nytimes-logo")
+        let imageView = UIImageView(image: image)
+        imageView.contentMode = .scaleAspectFit
+        let view = UIView()
+        view.backgroundColor = .clear
+        view.addSubview(imageView)
+        imageView.anchor(view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor,
+                         right: view.rightAnchor, topConstant: 10, leftConstant: 50,
+                         bottomConstant: 10, rightConstant: 50, widthConstant: 0, heightConstant: 0)
+        return view
+    }()
     
     weak var viewDelegate: HomeViewModelViewDelegate?
     weak var coordinatorDelegate: HomeViewModelCoordinatorDelegate?
@@ -34,12 +46,16 @@ class HomeViewModel {
         return articles.count
     }
     
-    func itemModel(at index: IndexPath) -> NewsCellModel {
-        let article = articles[index.row]
-        let imageUrls: [URL] = article.media.first?.mediaMetadata.map {
+    private func article(at indexPath: IndexPath) -> ArticleData {
+        return articles[indexPath.row]
+    }
+    
+    func itemModel(at indexPath: IndexPath) -> NewsCellModel {
+        let articleData = article(at: indexPath)
+        let imageUrls: [URL] = articleData.media.first?.mediaMetadata.map {
             $0.url
         } ?? []
-        let model = NewsCellModel(url: article.url, title: article.title, imageUrls: imageUrls)
+        let model = NewsCellModel(url: articleData.url, title: articleData.title, imageUrls: imageUrls, articleID: articleData.id)
         return model
     }
     
@@ -57,6 +73,11 @@ class HomeViewModel {
                 break
             }
         }
+    }
+    
+    func didSelectCell(at indexPath: IndexPath) {
+        let articleData = article(at: indexPath)
+        coordinatorDelegate?.openArticle(data: articleData)
     }
     
     init(mostViewedApiClient: MostViewedApiClient) {

@@ -9,23 +9,24 @@
 import UIKit
 
 
-class ApplicationCoordinator: Coordinator {
+class ApplicationCoordinator: ParentCoordinator {
+    
     let appContext: AppContext
     let window: UIWindow
-    let rootViewController: UIViewController
+    let navigationController: UINavigationController
+    var childCoordinators: [Coordinator] = []
     
     init(window: UIWindow) {
         self.window = window
         appContext = AppContext()
-        
-        let homeViewModel = HomeViewModel(mostViewedApiClient: appContext.mostViewedApiClient)
-        let homeViewController = HomeViewController(viewModel: homeViewModel)
-        let navigationController = UINavigationController(rootViewController: homeViewController)
-        rootViewController = navigationController
+        navigationController = UINavigationController()
     }
     
     func start() {
-        window.rootViewController = rootViewController
+        window.rootViewController = navigationController
         window.makeKeyAndVisible()
+        
+        let homeCoordinator = HomeCoordinator(presenter: navigationController, context: appContext)
+        add(childCoordinator: homeCoordinator)
     }
 }

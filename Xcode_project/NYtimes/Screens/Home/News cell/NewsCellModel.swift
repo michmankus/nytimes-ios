@@ -12,4 +12,11 @@ struct NewsCellModel {
     let url: URL?
     let title: String
     let imageUrls: [URL]
+    let articleID: Int
+    var newsImageHeroID: String {
+        return AnimationConstants.HeroIdentifiers.newsImage + "\(articleID)"
+    }
+    var newsTitleHeroID: String {
+        return AnimationConstants.HeroIdentifiers.newsTitle + "\(articleID)"
+    }
 }
