@@ -99,6 +99,7 @@ class NewsCell: UITableViewCell, ReusableView {
     }
     
     private func commonInit() {
+        accessibilityIdentifier = "newsCell"
         selectionStyle = .none
         setupViews()
     }

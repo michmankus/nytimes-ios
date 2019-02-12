@@ -17,6 +17,7 @@ class HomeView: UIView {
         view.separatorStyle = .none
         view.registerCell(NewsCell.self)
         view.rowHeight = 280
+        view.accessibilityIdentifier = "newsFeedTableView"
         
         return view
     }()
@@ -28,6 +29,7 @@ class HomeView: UIView {
         
         addSubview(tableView)
         tableView.fillSuperview()
+        accessibilityIdentifier = "newsFeedView"
     }
     
     required init?(coder aDecoder: NSCoder) {

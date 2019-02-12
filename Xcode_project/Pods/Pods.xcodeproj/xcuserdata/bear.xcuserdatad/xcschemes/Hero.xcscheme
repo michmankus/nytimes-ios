@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5F69DC9DF16F5FFF5FA834DF9655EC6A"
+               BlueprintIdentifier = "4248F091B129D885A29B5A46F07ADD16"
                BlueprintName = "Hero"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "Hero.framework">
+               BuildableName = "libHero.a">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
