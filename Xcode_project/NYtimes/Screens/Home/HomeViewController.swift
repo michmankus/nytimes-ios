@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Hero
 
 class HomeViewController: UIViewController {
     
@@ -18,6 +19,7 @@ class HomeViewController: UIViewController {
         
         myView.tableView.delegate = self
         myView.tableView.dataSource = self
+        navigationItem.titleView = viewModel.titleView
         
         viewModel.loadData()
     }
@@ -33,6 +35,7 @@ class HomeViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
         
         viewModel.viewDelegate = self
+        hero.isEnabled = true
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -68,5 +71,9 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         let model = viewModel.itemModel(at: indexPath)
         cell.configure(with: model)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.didSelectCell(at: indexPath)
     }
 }

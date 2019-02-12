@@ -11,4 +11,5 @@ import UIKit
 struct ColorPallete {
     static let backgroundWhite: UIColor = UIColor(r: 239, g: 239, b: 239)
     static let dimmBackground: UIColor = UIColor.black.withAlphaComponent(0.2)
+    static let oceanBlue: UIColor = UIColor(r: 48, g: 86, b: 212)
 }
