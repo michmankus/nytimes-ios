@@ -55,6 +55,10 @@ extension HomeViewController: HomeViewModelViewDelegate {
     func busy() {
         myView.isBusy = true
     }
+    
+    func showError(model: AlertViewModel) {
+        showAlert(using: model)
+    }
 }
 
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {

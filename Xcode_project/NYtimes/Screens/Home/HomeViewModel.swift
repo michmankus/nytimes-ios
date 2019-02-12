@@ -12,6 +12,7 @@ protocol HomeViewModelViewDelegate: class {
     func dataLoaded()
     func busy()
     func idle()
+    func showError(model: AlertViewModel)
 }
 
 protocol HomeViewModelCoordinatorDelegate: class {
@@ -70,7 +71,10 @@ class HomeViewModel {
                 self.articles = data.results
                 self.viewDelegate?.dataLoaded()
             case .failure(let error):
-                break
+                let model = AlertViewModel.tryAgainAlertModel(message: error.localizedDescription) { [weak self] in
+                    self?.loadData()
+                }
+                self.viewDelegate?.showError(model: model)
             }
         }
     }
