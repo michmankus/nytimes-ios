@@ -15,6 +15,7 @@
 		0975FAC822135E9F0085000B /* AnimationConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0975FAC722135E9F0085000B /* AnimationConstants.swift */; };
 		0975FACB22136F3E0085000B /* ParentCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0975FACA22136F3E0085000B /* ParentCoordinator.swift */; };
 		0975FACD22136F4E0085000B /* ChildCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0975FACC22136F4E0085000B /* ChildCoordinator.swift */; };
+		0975FACF221375450085000B /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0975FACE221375450085000B /* UIViewController+Alert.swift */; };
 		09D121522211F005007D99C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D121512211F005007D99C2 /* AppDelegate.swift */; };
 		09D121592211F007007D99C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09D121582211F007007D99C2 /* Assets.xcassets */; };
 		09D1215C2211F007007D99C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09D1215A2211F007007D99C2 /* LaunchScreen.storyboard */; };
@@ -73,6 +74,7 @@
 		0975FAC722135E9F0085000B /* AnimationConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationConstants.swift; sourceTree = "<group>"; };
 		0975FACA22136F3E0085000B /* ParentCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentCoordinator.swift; sourceTree = "<group>"; };
 		0975FACC22136F4E0085000B /* ChildCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildCoordinator.swift; sourceTree = "<group>"; };
+		0975FACE221375450085000B /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		09D1214E2211F005007D99C2 /* NYtimes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NYtimes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09D121512211F005007D99C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09D121582211F007007D99C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				09F9D942221247E900A1C822 /* UIView+Busy.swift */,
+				0975FACE221375450085000B /* UIViewController+Alert.swift */,
 				09F9D94422124F8800A1C822 /* UIImageView+Alamofire.swift */,
 				09F9D924221222B400A1C822 /* UIView+Anchors.swift */,
 				09F9D9362212392100A1C822 /* UIColor+Components.swift */,
@@ -581,6 +584,7 @@
 			files = (
 				09F9D9492213396C00A1C822 /* NetworkService.swift in Sources */,
 				09F9D92A22122D2200A1C822 /* ApiEnums.swift in Sources */,
+				0975FACF221375450085000B /* UIViewController+Alert.swift in Sources */,
 				09F9D9372212392100A1C822 /* UIColor+Components.swift in Sources */,
 				09F9D9212212218900A1C822 /* HomeViewController.swift in Sources */,
 				0975FAC822135E9F0085000B /* AnimationConstants.swift in Sources */,
