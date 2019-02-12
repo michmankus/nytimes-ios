@@ -20,10 +20,10 @@ extension ApiClient {
         case all = "all-sections"
     }
     
-    func fetchMostViewed(section: MostViewedSection = .all, period: Period = .week) {
+    func fetchMostViewed(section: MostViewedSection = .all,
+                         period: Period = .week,
+                         completion: @escaping (RequestResult<MostViewedResult>) -> Void) {
         let endpoint = "mostviewed/" + section.rawValue + "/\(period.rawValue)" + ".json"
-        fetchJSONData(endpoint: endpoint, expectedType: MostViewedResult.self) { result in 
-            
-        }
+        fetchJSONData(endpoint: endpoint, expectedType: MostViewedResult.self, completion: completion)
     }
 }
