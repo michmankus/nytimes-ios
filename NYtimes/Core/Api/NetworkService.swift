@@ -9,7 +9,17 @@
 import Foundation
 import Alamofire
 
-protocol NetworkServiceProtocol {
+struct ApiConfiguration {
+    let baseURL: String
+    let apiVersion: String
+    let key: String
+    
+    func generateUrl(endpoint: String) -> String {
+        return baseURL + apiVersion + "/" + endpoint + "?api-key=" + key
+    }
+}
+
+protocol NetworkServiceProtocol { //TODO: - Move network service to seperate module
     var config: ApiConfiguration { get }
     func apiRequest (endpoint: String, completion: @escaping (_ result: RequestResult<Data>) -> Void )
 }
@@ -18,7 +28,7 @@ class NetworkSerivce: NetworkServiceProtocol {
     let config: ApiConfiguration
     
     func apiRequest (endpoint: String, completion: @escaping (_ result: RequestResult<Data>) -> Void ) {
-        let url = config.baseURL + config.apiVersion + "/" + endpoint + "?api-key=" + config.key
+        let url = config.generateUrl(endpoint: endpoint)
         
         Alamofire.request(url).validate().responseJSON { response in
             if let error = response.error {

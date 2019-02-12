@@ -9,12 +9,6 @@
 import Foundation
 import Alamofire
 
-struct ApiConfiguration {
-    let baseURL: String
-    let apiVersion: String
-    let key: String
-}
-
 class ApiClient {
     let networkService: NetworkServiceProtocol
     let jsonDecoder = JSONDecoder()
