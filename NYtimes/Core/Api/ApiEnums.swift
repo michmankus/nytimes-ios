@@ -1,5 +1,5 @@
 //
-//  AppContext.swift
+//  ApiEnums.swift
 //  NYtimes
 //
 //  Created by Michał Mańkus on 11/02/2019.
@@ -8,11 +8,12 @@
 
 import Foundation
 
-class AppContext {
-    
-    let apiClient: ApiClient
-    
-    init() {
-        self.apiClient = ApiClient()
-    }
+enum RequestResult<T> {
+    case success(T)
+    case failure(Error)
+}
+
+enum ServerError: Error {
+
+    case invalidResponse
 }

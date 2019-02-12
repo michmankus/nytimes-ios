@@ -18,8 +18,10 @@ class ApplicationCoordinator: Coordinator {
         self.window = window
         appContext = AppContext()
         
-        let vc = HomeViewController()
-        rootViewController = vc
+        let homeViewModel = HomeViewModel(apiClient: appContext.apiClient)
+        let homeViewController = HomeViewController(viewModel: homeViewModel)
+        let navigationController = UINavigationController(rootViewController: homeViewController)
+        rootViewController = navigationController
     }
     
     func start() {
