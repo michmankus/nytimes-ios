@@ -14,6 +14,7 @@ class NewsDetailView: UIView {
        let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
+        imageView.accessibilityIdentifier = "newsDetailHeaderImageView"
         return imageView
     }()
     
@@ -44,12 +45,14 @@ class NewsDetailView: UIView {
         let button = UIButton()
         let image = UIImage(named: "closeButton")
         button.setImage(image, for: .normal)
+        button.accessibilityIdentifier = "closeButton"
         return button
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        accessibilityIdentifier = "newsDetailView"
         backgroundColor = .white
         
         addSubview(headerImageView)

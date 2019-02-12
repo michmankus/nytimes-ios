@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites name='NYtimesUITests.xctest' tests='4' failures='0'>
+  <testsuite name='NYtimesTests.NYtimesTests' tests='3' failures='0'>
+    <testcase classname='NYtimesTests.NYtimesTests' name='testCorrectNewsModels' time='0.010'/>
+    <testcase classname='NYtimesTests.NYtimesTests' name='testIncorrectNewsModels' time='0.003'/>
+    <testcase classname='NYtimesTests.NYtimesTests' name='testURLGenerating' time='0.003'/>
+  </testsuite>
+  <testsuite name='NYtimesUITests.NYtimesUITests' tests='1' failures='0'>
+    <testcase classname='NYtimesUITests.NYtimesUITests' name='testOpeningNews' time='7.416'/>
+  </testsuite>
+</testsuites>
