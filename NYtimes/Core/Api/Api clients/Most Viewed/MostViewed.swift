@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension ApiClient {
+class MostViewedApiClient: ApiClient {
     
     enum Period: Int {
         case day = 1
@@ -25,5 +25,9 @@ extension ApiClient {
                          completion: @escaping (RequestResult<MostViewedResult>) -> Void) {
         let endpoint = "mostviewed/" + section.rawValue + "/\(period.rawValue)" + ".json"
         fetchJSONData(endpoint: endpoint, expectedType: MostViewedResult.self, completion: completion)
+    }
+    
+    override init(networkService: NetworkServiceProtocol) {
+        super.init(networkService: networkService)
     }
 }
